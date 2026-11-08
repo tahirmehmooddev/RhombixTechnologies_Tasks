@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#f4f7fc" />
+  <meta name="description" content="A clean, responsive to-do list application with local storage." />
+  <title>TaskFlow — To-Do List</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="TaskFlow home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.2 4.2L19.5 6.8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span>taskflow<span class="brand-dot">.</span></span>
+      </a>
+      <div class="topbar-note"><span class="live-dot"></span> Your personal workspace</div>
+    </header>
+
+    <section class="hero" id="top">
+      <div class="eyebrow"><span class="eyebrow-line"></span> PLAN · FOCUS · COMPLETE</div>
+      <h1>Make space for<br /><span>what matters.</span></h1>
+      <p class="hero-copy">A calmer way to organize your day. Capture tasks, keep your focus, and make progress one step at a time.</p>
+    </section>
+
+    <section class="dashboard" aria-label="Task dashboard">
+      <div class="summary-grid">
+        <article class="summary-card summary-primary">
+          <div class="summary-label">TOTAL TASKS</div>
+          <div class="summary-value" id="totalCount">0</div>
+          <div class="summary-foot">Everything on your list</div>
+          <span class="summary-orb" aria-hidden="true"></span>
+        </article>
+        <article class="summary-card">
+          <div class="summary-label">TO DO</div>
+          <div class="summary-value" id="activeCount">0</div>
+          <div class="summary-foot">One step at a time</div>
+        </article>
+        <article class="summary-card">
+          <div class="summary-label">COMPLETED</div>
+          <div class="summary-value" id="completedCount">0</div>
+          <div class="summary-foot">Progress worth celebrating</div>
+        </article>
+      </div>
+
+      <section class="task-panel" aria-labelledby="listHeading">
+        <div class="panel-heading">
+          <div>
+            <div class="section-kicker">YOUR WORKSPACE</div>
+            <h2 id="listHeading">My tasks<span class="heading-period">.</span></h2>
+          </div>
+          <div class="date-chip" id="todayLabel">TODAY</div>
+        </div>
+
+        <form class="add-form" id="taskForm">
+          <label class="sr-only" for="taskInput">New task</label>
+          <span class="input-plus" aria-hidden="true">+</span>
+          <input id="taskInput" name="task" type="text" maxlength="140" placeholder="What needs to get done?" autocomplete="off" required />
+          <button class="add-button" type="submit"><span>Add task</span><span aria-hidden="true">↗</span></button>
+        </form>
+        <p class="form-hint" id="formHint">Press Enter to add a task. Keep it clear and actionable.</p>
+
+        <div class="list-toolbar">
+          <div class="filters" role="group" aria-label="Filter tasks">
+            <button class="filter-button is-active" type="button" data-filter="all" aria-pressed="true">All <span id="allFilterCount">0</span></button>
+            <button class="filter-button" type="button" data-filter="active" aria-pressed="false">Active</button>
+            <button class="filter-button" type="button" data-filter="completed" aria-pressed="false">Completed</button>
+          </div>
+          <button class="clear-button" id="clearCompleted" type="button" disabled>Clear completed</button>
+        </div>
+
+        <ul class="task-list" id="taskList" aria-live="polite" aria-relevant="additions removals text"></ul>
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon" aria-hidden="true">
+            <svg viewBox="0 0 48 48" fill="none"><rect x="10" y="8" width="28" height="34" rx="6" stroke="currentColor" stroke-width="1.7"/><path d="M18 18h12M18 25h12M18 32h7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="m29 34 3 3 6-7" stroke="#67A7FF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3 id="emptyTitle">A fresh start.</h3>
+          <p id="emptyCopy">Your list is clear. Add your first task above and build some momentum.</p>
+        </div>
+
+        <div class="panel-footer">
+          <span><span class="footer-lock" aria-hidden="true">◆</span> Saved privately in this browser</span>
+          <span id="remainingLabel">0 tasks remaining</span>
+        </div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      <span>Designed with focus<span class="footer-heart"> ♥ </span>by Tahir Mehmood</span>
+      <span class="footer-tech">HTML · CSS · JAVASCRIPT</span>
+    </footer>
+  </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
