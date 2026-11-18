@@ -1,0 +1,28 @@
+# Task 1 — Option 2: To-Do List Application
+
+**Owner:** Tahir Mehmood  
+**Internship:** Rhombix Technologies — Web Development  
+**Task:** Month 1 — Task 1, Option 2  
+**Theme:** Light / White with Blue accents
+
+## Run locally
+1. Open this project folder.
+2. Open index.html in a modern browser.
+3. Add, edit, complete, filter and delete tasks.
+
+## Features
+- Add new tasks
+- Edit task text
+- Mark tasks complete or active
+- Delete individual tasks
+- Filter All / Active / Completed
+- Clear completed tasks
+- Save tasks in browser Local Storage
+- Responsive layout for desktop and mobile
+
+## Project files
+- **index.html** — application structure
+- **style.css** — responsive layout and visual styling
+- **script.js** — task operations and Local Storage
+
+**Storage note:** Tasks are saved in the current browser on the current device. Clearing browser site data may remove them.

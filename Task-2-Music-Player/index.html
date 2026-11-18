@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f8ff">
+  <meta name="description" content="A responsive music player with original browser-generated instrumental tracks.">
+  <title>Pulse — Music Player</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">♫</span>pulse<span>.</span></a>
+      <p class="side-label">YOUR LIBRARY</p>
+      <nav class="side-nav" aria-label="Music categories">
+        <button class="nav-link active" data-filter="all">⌂ <span>All music</span></button>
+        <button class="nav-link" data-filter="chill">☾ <span>Chill</span></button>
+        <button class="nav-link" data-filter="focus">◉ <span>Focus</span></button>
+        <button class="nav-link" data-filter="ambient">✧ <span>Ambient</span></button>
+        <button class="nav-link" data-filter="electronic">⌁ <span>Electronic</span></button>
+      </nav>
+      <div class="side-note"><div class="note-icon">♫</div><strong>Sound, without the noise.</strong><p>A little space to find your rhythm and settle into the moment.</p></div>
+      <div class="side-footer"><i></i> Made for your listening time</div>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="breadcrumb">YOUR SPACE <b>/</b> <strong>LISTEN NOW</strong></div>
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Search tracks..." aria-label="Search tracks"><kbd>⌘ K</kbd></label>
+        <div class="profile"><span>TM</span> Tahir's library</div>
+      </header>
+
+      <section class="welcome">
+        <p class="eyebrow">— YOUR PERSONAL SOUNDTRACK</p>
+        <h1>Find your <em>flow.</em></h1>
+        <p>A thoughtful little collection for focus, slow mornings and everything in between.</p>
+      </section>
+
+      <section class="feature">
+        <div class="feature-copy">
+          <small>A MOMENT TO YOURSELF</small>
+          <h2>Press play.<br><em>Let the day settle.</em></h2>
+          <p>Original instrumental soundscapes, created right here in your browser.</p>
+          <button id="playFeatured" class="primary-button"><span>▶</span> Play a track</button>
+        </div>
+        <div class="feature-art"><div class="art-orbit"></div><div class="art-orbit second"></div><div class="art-core">♫</div><small>SOUND IN MOTION · VOL. 01</small></div>
+      </section>
+
+      <div class="content-grid">
+        <section class="library">
+          <div class="section-head">
+            <div><p class="eyebrow">CURATED FOR YOU</p><h2>Your library <span id="trackCount">5 tracks</span></h2></div>
+            <label class="sort">Sort by <select id="sortSelect"><option value="featured">Featured</option><option value="title">Title</option><option value="shortest">Duration</option></select></label>
+          </div>
+          <div class="filters">
+            <button class="filter-chip active" data-filter="all">All tracks</button>
+            <button class="filter-chip" data-filter="chill">Chill</button>
+            <button class="filter-chip" data-filter="focus">Focus</button>
+            <button class="filter-chip" data-filter="ambient">Ambient</button>
+            <button class="filter-chip" data-filter="electronic">Electronic</button>
+          </div>
+          <div class="table-head"><span>TRACK</span><span>MOOD</span><span>TIME</span><span></span></div>
+          <div id="trackList" class="track-list" aria-live="polite"></div>
+          <div id="emptyState" class="empty hidden"><strong>No tracks found</strong><p>Try another search or category.</p></div>
+          <p class="library-note">≋ &nbsp;Five original demo compositions · Generated in your browser</p>
+        </section>
+
+        <aside class="player-panel">
+          <div class="panel-head"><span>NOW PLAYING</span><span class="ready"><i></i> READY</span></div>
+          <div id="albumCover" class="album-cover">
+            <div class="cover-orbit"></div><div class="cover-orbit inner"></div><div class="cover-sun"></div><div class="cover-wave">▁ ▃ ▅ ▇ ▅ ▃ ▁</div>
+            <small>PULSE STUDIO</small>
+          </div>
+          <div class="now-meta"><div><h3 id="nowTitle">Blue Hour</h3><p id="nowArtist">Pulse Studio · Chill</p></div><span id="soundStatus">♫</span></div>
+          <div class="progress"><input id="seekBar" type="range" min="0" max="120" value="0" step=".1" aria-label="Seek within track"><div><span id="currentTime">0:00</span><span id="durationTime">2:00</span></div></div>
+          <div class="controls">
+            <button id="shuffleButton" class="minor-control" aria-label="Toggle shuffle" title="Shuffle">⤨</button>
+            <button id="previousButton" class="skip-control" aria-label="Previous track">|◀</button>
+            <button id="playButton" class="play-control" aria-label="Play">▶</button>
+            <button id="nextButton" class="skip-control" aria-label="Next track">▶|</button>
+            <button id="repeatButton" class="minor-control" aria-label="Repeat mode off" title="Repeat off">↻</button>
+          </div>
+          <div class="volume"><span>◖</span><input id="volumeBar" type="range" min="0" max="100" value="65" aria-label="Volume"><small id="volumeValue">65%</small></div>
+          <div class="queue-head"><span>UP NEXT</span><span id="queueCount">05 TRACKS</span></div>
+          <div id="queueList" class="queue-list"></div>
+        </aside>
+      </div>
+      <footer class="footer"><span>MADE WITH <b>♫</b> BY TAHIR MEHMOOD</span><span>HTML <i>·</i> CSS <i>·</i> JAVASCRIPT</span></footer>
+    </main>
+  </div>
+</body>
+</html>
